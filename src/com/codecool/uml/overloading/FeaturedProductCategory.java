@@ -13,5 +13,6 @@ public class FeaturedProductCategory extends ProductCategory {
     @Override
     public String toString() {
         //TODO
+        return "";
     }
 }

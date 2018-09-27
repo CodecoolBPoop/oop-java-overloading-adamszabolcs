@@ -49,11 +49,15 @@ public class ProductCategory {
     }
 
     public static List<Product> getProducts() {
+/*
         String name = getName();
         return Product.getAllProductsBy(name);
+*/
+        return null;
     }
 
     public String toString() {
         //TODO
+        return "";
     }
 }

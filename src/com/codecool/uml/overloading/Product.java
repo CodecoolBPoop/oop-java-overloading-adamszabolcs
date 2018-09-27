@@ -18,7 +18,9 @@ public class Product {
     }
 
     public Product(String name, float defaultPrice, Currency defaultCurrency) {
-        //TODO
+        setName(name);
+        setDefaultPrice(defaultPrice);
+        setDefaultCurrency(defaultCurrency);
     }
 
     public int getId() {

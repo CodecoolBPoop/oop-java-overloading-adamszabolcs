@@ -13,7 +13,8 @@ public class Supplier {
     }
 
     public Supplier(String name, String description) {
-        //TODO
+        setName(name);
+        setDescription(description);
     }
 
     public int getId() {

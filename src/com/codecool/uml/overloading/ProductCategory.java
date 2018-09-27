@@ -10,10 +10,11 @@ public class ProductCategory {
     private String description;
 
     public ProductCategory() {
-        //TODO
+        this.id = id++;
     }
 
     public ProductCategory(String name, String department, String description) {
+        this.id = id++;
         setName(name);
         setDepartment(department);
         setDescription(description);

@@ -50,4 +50,8 @@ public class ProductCategory {
     public static List<Product> getProducts() {
         //TODO
     }
+
+    public String toString() {
+        //TODO
+    }
 }

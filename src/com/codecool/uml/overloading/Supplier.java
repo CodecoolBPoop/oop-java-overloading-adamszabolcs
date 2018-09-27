@@ -37,7 +37,7 @@ public class Supplier {
         this.description = description;
     }
 
-    public List<Product> getProducts() {
+    public static List<Product> getProducts() {
         //TODO
     }
 

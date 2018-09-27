@@ -5,7 +5,7 @@ import java.util.List;
 public class ProductCategory {
 
     private int id;
-    private String name;
+    private static String name;
     private String department;
     private String description;
 
@@ -24,7 +24,7 @@ public class ProductCategory {
         return id;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
@@ -49,7 +49,8 @@ public class ProductCategory {
     }
 
     public static List<Product> getProducts() {
-        //TODO
+        String name = getName();
+        return Product.getAllProductsBy(name);
     }
 
     public String toString() {

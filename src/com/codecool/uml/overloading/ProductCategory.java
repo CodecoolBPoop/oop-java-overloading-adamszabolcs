@@ -14,7 +14,9 @@ public class ProductCategory {
     }
 
     public ProductCategory(String name, String department, String description) {
-        //TODO
+        setName(name);
+        setDepartment(department);
+        setDescription(description);
     }
 
     public int getId() {

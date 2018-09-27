@@ -47,7 +47,7 @@ public class ProductCategory {
         this.description = description;
     }
 
-    public List<Product> getProducts() {
+    public static List<Product> getProducts() {
         //TODO
     }
 }

@@ -1,5 +1,6 @@
 package com.codecool.uml.overloading;
 
+import java.util.ArrayList;
 import java.util.Currency;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class Product {
     private Currency defaultCurrency;
     private ProductCategory productCategory;
     private Supplier supplier;
-    private List<Product> productList;
+    private static List<Product> productList;
 
     public Product() {
         this.id = id++;
@@ -67,17 +68,36 @@ public class Product {
         this.supplier = supplier;
     }
 
-    public List<Product> getAllProductsBy(ProductCategory productCategory) {
-        for (ProductCategory category : productCategory) {
-            ProductCategory.getProducts();
+    public static List<Product> getAllProductsBy(ProductCategory productCategory) {
+        List<Product> productsByCategory = new ArrayList<>();
+        for (Product product : productList) {
+            if (product.getProductCategory() == productCategory) {
+                productsByCategory.add(product);
+            }
         }
+        return productsByCategory;
     }
 
-    public List<Product> getAllProductsBy(Supplier supplier) {
-        return Supplier.getProducts();
+    public static List<Product> getAllProductsBy(Supplier supplier) {
+        List<Product> productsBySupplier = new ArrayList<>();
+        for (Product product : productList) {
+            if (product.getSupplier() == supplier) {
+                productsBySupplier.add(product);
+            }
+        }
+        return productsBySupplier;
     }
 
     public String toString() {
-        //TODO
+        StringBuilder sb = new StringBuilder();
+        for (Product product : productList) {
+            sb.append("id:" + product.getId() +
+                    ",name:" + product.getName() +
+                    ",defaultprice:" + product.getDefaultPrice() +
+                    ",supplier:" + product.getSupplier() +
+                    ",category:" + product.getProductCategory() +
+                    ",defaultcurrency:" + product.getDefaultCurrency());
+        }
+        return sb.toString();
     }
 }

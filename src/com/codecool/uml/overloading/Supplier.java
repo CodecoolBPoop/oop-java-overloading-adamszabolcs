@@ -5,14 +5,15 @@ import java.util.List;
 public class Supplier {
 
     private int id;
-    private String name;
+    private static String name;
     private String description;
 
     public Supplier() {
-        //TODO
+        this.id = id++;
     }
 
     public Supplier(String name, String description) {
+        this.id = id++;
         setName(name);
         setDescription(description);
     }
@@ -21,7 +22,7 @@ public class Supplier {
         return id;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
@@ -38,7 +39,8 @@ public class Supplier {
     }
 
     public static List<Product> getProducts() {
-        //TODO
+        String name = getName();
+        return Product.getAllProductsBy(name);
     }
 
     public String toString() {

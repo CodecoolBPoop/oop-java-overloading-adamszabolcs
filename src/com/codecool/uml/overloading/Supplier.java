@@ -5,15 +5,16 @@ import java.util.List;
 public class Supplier {
 
     private int id;
-    private static String name;
+    private static int counter = 1;
+    private String name;
     private String description;
 
     public Supplier() {
-        this.id = id++;
+        this.id = counter++;
     }
 
     public Supplier(String name, String description) {
-        this.id = id++;
+        this.id = counter++;
         setName(name);
         setDescription(description);
     }
@@ -22,7 +23,7 @@ public class Supplier {
         return id;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
@@ -38,15 +39,15 @@ public class Supplier {
         this.description = description;
     }
 
-    public static List<Product> getProducts() {
-/*
-        String name = getName();
-        return Product.getAllProductsBy(name);
-*/
-        return null;
+    public List<Product> getProducts() {
+        return Product.getAllProductsBy(this);
     }
 
     public String toString() {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        sb.append("id:" + this.getId() +
+                ",name:" + this.getName() +
+                ",description:" + this.getDescription());
+        return sb.toString();
     }
 }

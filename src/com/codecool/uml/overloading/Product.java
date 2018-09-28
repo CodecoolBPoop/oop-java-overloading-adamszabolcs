@@ -5,23 +5,26 @@ import java.util.Currency;
 import java.util.List;
 
 public class Product {
+    private static int counter = 1;
     private int id;
     private String name;
     private float defaultPrice;
     private Currency defaultCurrency;
     private ProductCategory productCategory;
     private Supplier supplier;
-    private static List<Product> productList;
+    private static List<Product> productList = new ArrayList<>();
 
     public Product() {
-        this.id = id++;
+        this.id = counter++;
+        productList.add(this);
     }
 
     public Product(String name, float defaultPrice, Currency defaultCurrency) {
-        this.id = id++;
+        this.id = counter++;
         setName(name);
         setDefaultPrice(defaultPrice);
         setDefaultCurrency(defaultCurrency);
+        productList.add(this);
     }
 
     public int getId() {
@@ -81,7 +84,7 @@ public class Product {
     public static List<Product> getAllProductsBy(Supplier supplier) {
         List<Product> productsBySupplier = new ArrayList<>();
         for (Product product : productList) {
-            if (product.getSupplier() == supplier) {
+            if (product.supplier == supplier) {
                 productsBySupplier.add(product);
             }
         }
@@ -89,15 +92,16 @@ public class Product {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (Product product : productList) {
-            sb.append("id:" + product.getId() +
-                    ",name:" + product.getName() +
-                    ",defaultprice:" + product.getDefaultPrice() +
-                    ",supplier:" + product.getSupplier() +
-                    ",category:" + product.getProductCategory() +
-                    ",defaultcurrency:" + product.getDefaultCurrency());
-        }
+        /*StringBuilder sb = new StringBuilder();
+        sb.append(*/
+        return "id:" + this.getId() +
+                ",name:" + this.getName() +
+                ",defaultprice:" + this.getDefaultPrice() +
+                ",supplier:" + this.supplier.getName() +
+                ",category:" + this.productCategory.getName() +
+                ",defaultcurrency:" + this.getDefaultCurrency();
+/*
         return sb.toString();
+*/
     }
 }
